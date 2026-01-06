@@ -372,6 +372,32 @@ def parse_directives(message):
    - Conflicting directives
    - Missing directive files
 
+### Validating directives
+
+Use the linter to check directive files for structure and completeness:
+
+```bash
+python3 bin/lint_directives.py
+```
+
+The linter checks for:
+- Required sections (Purpose/Summary)
+- Directive name format (`--name`)
+- File naming consistency
+- Recommended sections (Examples, Output Format, Behavior)
+- Persistent directive exit conditions
+- Markdown structure
+
+**Exit codes:**
+- `0` - All checks pass
+- `1` - Errors found (missing required sections)
+- Warnings are shown but don't fail the build
+
+You can also specify a custom directives directory:
+```bash
+python3 bin/lint_directives.py /path/to/directives
+```
+
 ---
 
 ## Troubleshooting
